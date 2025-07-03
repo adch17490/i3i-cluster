@@ -1,0 +1,101 @@
+orion:
+  enabled: false
+  image: fiware/orion
+  tag: "3.2.0"
+  port: 1026
+
+iotagent:
+  enabled: false
+  image: fiware/iotagent-json
+  tag: "1.22.0"
+  port: 4041
+
+quantumleap:
+  enabled: false
+  image: smartsdk/quantumleap
+  tag: "0.7.6"
+  port: 8668
+
+crate:
+  enabled: false
+  image: crate/crate
+  tag: "4.8.0"
+  port: 4200
+
+influxdb:
+  enabled: false
+  image: influxdb
+  tag: "2.7.5"
+  port: 8086
+
+telegraf:
+  enabled: false
+  image: telegraf
+  tag: "1.30"
+  port: 8125  # UDP, statsd
+
+timescale:
+  enabled: false
+  image: timescale/timescaledb
+  tag: "latest-pg15"
+  port: 5432
+
+mariadb:
+  enabled: false
+  image: mariadb
+  tag: "11.4"
+  port: 3306
+
+postgres:
+  enabled: false
+  image: postgres
+  tag: "15"
+  port: 5432
+
+mqtt:
+  enabled: false
+  image: eclipse-mosquitto
+  tag: "2.0"
+  port: 1883
+
+nodered:
+  enabled: false
+  image: nodered/node-red
+  tag: "3.1"
+  port: 1880
+
+grafana:
+  enabled: false
+  image: grafana/grafana
+  tag: "10.4.1"
+  port: 3000
+
+homeassistant:
+  enabled: false
+  image: ghcr.io/home-assistant/home-assistant
+  tag: "2024.6"
+  port: 8123
+
+chirpstack:
+  enabled: false
+  image: chirpstack/chirpstack
+  tag: "4.7"
+  port: 8080
+
+redis:
+  enabled: false
+  image: redis
+  tag: "7"
+  port: 6379
+
+python:
+  enabled: false
+  image: python
+  tag: "3.11"
+  port: 5000  # si usas algo tipo Flask
+
+nginx:
+  enabled: false
+  image: nginx
+  tag: "1.25"
+  port: 80
