@@ -1,0 +1,14 @@
+{{- if .Values.influxdb.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: influxdb
+spec:
+  selector:
+    app: influxdb
+  ports:
+    - protocol: TCP
+      port: {{ .Values.influxdb.port }}
+      targetPort: {{ .Values.influxdb.port }}
+  type: ClusterIP
+{{- end }}

@@ -1,0 +1,32 @@
+{{- if .Values.influxdb.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: influxdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: influxdb
+  template:
+    metadata:
+      labels:
+        app: influxdb
+    spec:
+      containers:
+        - name: influxdb
+          image: "{{ .Values.influxdb.image }}:{{ .Values.influxdb.tag }}"
+          ports:
+            - containerPort: {{ .Values.influxdb.port }}
+          env:
+            - name: DOCKER_INFLUXDB_INIT_MODE
+              value: "setup"
+            - name: DOCKER_INFLUXDB_INIT_USERNAME
+              value: "admin"
+            - name: DOCKER_INFLUXDB_INIT_PASSWORD
+              value: "admin123"
+            - name: DOCKER_INFLUXDB_INIT_ORG
+              value: "i3i"
+            - name: DOCKER_INFLUXDB_INIT_BUCKET
+              value: "default"
+{{- end }}

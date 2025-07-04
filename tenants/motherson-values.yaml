@@ -1,0 +1,65 @@
+orion:
+  enabled: false
+
+iotagent:
+  enabled: false
+
+quantumleap:
+  enabled: false
+
+crate:
+  enabled: false
+
+influxdb:
+  enabled: true
+  image: influxdb
+  tag: "2.7.5"
+  port: 8086
+
+telegraf:
+  enabled: false
+
+timescale:
+  enabled: false
+
+mariadb:
+  enabled: false
+
+postgres:
+  enabled: false
+
+mqtt:
+  enabled: true
+  image: eclipse-mosquitto
+  tag: "2.0"
+  port: 1883
+
+nodered:
+  enabled: true
+  image: nodered/node-red
+  tag: "3.1"
+  port: 1880
+
+grafana:
+  enabled: true
+  image: grafana/grafana
+  tag: "10.4.1"
+  port: 3000
+
+homeassistant:
+  enabled: false
+
+chirpstack:
+  enabled: false
+
+redis:
+  enabled: false
+
+python:
+  enabled: false
+
+nginx:
+  enabled: true
+  image: nginx
+  tag: "1.25"
+  port: 80

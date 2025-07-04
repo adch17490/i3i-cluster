@@ -1,0 +1,26 @@
+{{- if .Values.orion.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orion
+  template:
+    metadata:
+      labels:
+        app: orion
+    spec:
+      containers:
+        - name: orion
+          image: "{{ .Values.orion.image }}:{{ .Values.orion.tag }}"
+          ports:
+            - containerPort: {{ .Values.orion.port }}
+          args:
+            - -dbhost
+            - mongo
+            - -logLevel
+            - INFO
+{{- end }}

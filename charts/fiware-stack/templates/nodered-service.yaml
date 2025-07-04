@@ -1,0 +1,14 @@
+{{- if .Values.nodered.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodered
+spec:
+  selector:
+    app: nodered
+  ports:
+    - protocol: TCP
+      port: {{ .Values.nodered.port }}
+      targetPort: {{ .Values.nodered.port }}
+  type: ClusterIP
+{{- end }}

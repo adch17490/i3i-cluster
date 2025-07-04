@@ -1,0 +1,27 @@
+{{- if .Values.nodered.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodered
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodered
+  template:
+    metadata:
+      labels:
+        app: nodered
+    spec:
+      containers:
+        - name: nodered
+          image: "{{ .Values.nodered.image }}:{{ .Values.nodered.tag }}"
+          ports:
+            - containerPort: {{ .Values.nodered.port }}
+          volumeMounts:
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: data
+          emptyDir: {}
+{{- end }}
